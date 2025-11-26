@@ -1,0 +1,18 @@
+.main-footer {
+    background-color: darken($bg-dark, 3%);
+    border-top: 1px solid $bg-card;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: auto;
+
+    p {
+        color: $text-muted;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .sub-text {
+        font-size: 0.75rem;
+        opacity: 0.5;
+    }
+}

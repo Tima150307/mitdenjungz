@@ -1,0 +1,44 @@
+/* resources/scss/pages/_map.scss */
+
+body.map-layout {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.map-wrapper {
+    flex-grow: 1;
+    position: relative;
+    background-color: #000;
+    width: 100%;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        z-index: 10;
+    }
+
+    .loading-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 0;
+        color: $text-muted;
+        text-align: center;
+
+        .loading-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: $text-main;
+        }
+    }
+}

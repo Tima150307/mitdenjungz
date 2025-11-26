@@ -1,0 +1,12 @@
+// 1. Base
+@import 'base/variables';
+@import 'base/reset';
+
+// 2. Components
+@import 'components/navbar';
+@import 'components/footer';
+@import 'components/buttons';
+
+// 3. Pages
+@import 'pages/home';
+@import 'pages/map';
