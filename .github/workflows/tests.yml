@@ -19,7 +19,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [8.2, 8.3, 8.4]
+        # HIER WURDE GEÄNDERT: 8.2 entfernt, da Filament PHP 8.3+ braucht
+        php: [8.3, 8.4]
 
     name: PHP ${{ matrix.php }}
 
