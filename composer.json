@@ -8,6 +8,8 @@
     "require": {
         "php": "^8.2",
         "filament/filament": "^4.2",
+        "ext-intl": "*",
+        "ext-zip": "*",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1"
     },
