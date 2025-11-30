@@ -8,8 +8,20 @@ body {
     background-color: $bg-dark;
     color: $text-main;
     font-family: $font-body;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
 }

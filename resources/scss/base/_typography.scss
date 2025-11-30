@@ -1,0 +1,27 @@
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    @media (min-width: $screen-md) {
+        font-size: 4rem;
+    }
+}
+
+h2 {
+    font-size: 2rem;
+    color: $primary-color;
+}
+
+p {
+    margin-bottom: 1rem;
+    max-width: 65ch;
+}
+
+code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+}

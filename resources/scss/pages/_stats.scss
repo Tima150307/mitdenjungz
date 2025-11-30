@@ -1,0 +1,148 @@
+.stats-page {
+    padding: 4rem 1rem;
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .page-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        text-transform: uppercase;
+
+        .highlight {
+            color: $primary-color;
+        }
+    }
+}
+
+// Haupt Status Karte
+.main-status-card {
+    background: $bg-card;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    transition: all 0.3s;
+
+    &.online {
+        border-color: rgba($primary-color, 0.5);
+        background: linear-gradient(to right, rgba($primary-color, 0.05), $bg-card);
+        .dot, .ping-dot { background-color: $primary-color; }
+        h2 { color: $primary-color; }
+    }
+
+    &.offline {
+        border-color: rgba(#ef4444, 0.5);
+        .dot, .ping-dot { background-color: #ef4444; }
+        h2 { color: #ef4444; }
+    }
+
+    .status-indicator {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: $text-muted;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ping-dot {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: $text-muted;
+            opacity: 0.5;
+            animation: ping 2s infinite;
+        }
+    }
+
+    .status-content {
+        h2 { margin: 0; font-size: 2rem; }
+        .sub-info { margin: 0; color: $text-muted; font-family: monospace; }
+    }
+}
+
+// Grid für Details
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+
+    .stat-box {
+        background: $bg-card;
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.05);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .icon { font-size: 2rem; }
+        .info {
+            display: flex;
+            flex-direction: column;
+            .label { font-size: 0.8rem; color: $text-muted; text-transform: uppercase; }
+            .value { font-size: 1.2rem; font-weight: bold; font-family: monospace; }
+        }
+    }
+}
+
+// MOTD
+.motd-box {
+    background: #111;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid $primary-color;
+    margin-bottom: 3rem;
+
+    pre {
+        font-family: 'Minecraft', monospace;
+        white-space: pre-wrap;
+        color: #ddd;
+    }
+}
+
+// Spielerliste
+.player-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    .player-chip {
+        background: $bg-card;
+        padding: 0.5rem 1rem 0.5rem 0.5rem;
+        border-radius: 50px;
+        border: 1px solid rgba(255,255,255,0.1);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        transition: transform 0.2s;
+
+        &:hover { transform: translateY(-2px); border-color: $primary-color; }
+
+        img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
+        span { font-weight: bold; font-size: 0.9rem; }
+    }
+}

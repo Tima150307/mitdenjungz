@@ -5,6 +5,19 @@
     text-align: center;
     margin-top: auto;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     p {
         color: $text-muted;
         font-size: 0.9rem;
