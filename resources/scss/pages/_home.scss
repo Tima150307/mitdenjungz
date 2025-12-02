@@ -1,11 +1,11 @@
 .home-header {
-    flex-grow: 1;
+    min-height: auto;
+    padding: 6rem 2rem 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: 2rem;
 
     .glow-effect {
         position: absolute;
@@ -70,6 +70,10 @@
             font-family: monospace;
             color: $primary-hover;
             font-size: 1rem;
+
+            word-break: break-all;
+            overflow-wrap: break-word;
+            max-width: 100%;
         }
 
         .feedback-text {
@@ -80,5 +84,168 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
+    }
+}
+
+// ========== Features Section ==========
+.features-section {
+    padding: 4rem 3rem;
+    background: linear-gradient(180deg, $bg-dark 0%, $bg-card 100%);
+    position: relative;
+    z-index: 1;
+
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 3rem;
+        background: linear-gradient(90deg, $primary-color, $primary-light);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    .feature-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba($primary-color, 0.2);
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+            border-color: rgba($primary-color, 0.5);
+            box-shadow: 0 10px 30px rgba($primary-color, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: $primary-color;
+        }
+
+        p {
+            color: $text-muted;
+            line-height: 1.6;
+        }
+    }
+}
+
+// ========== What's Up Section ==========
+.whats-up-section {
+    padding: 4rem 3rem;
+    background: $bg-card;
+    position: relative;
+    z-index: 1;
+
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 3rem;
+        background: linear-gradient(90deg, $primary-color, $primary-light);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    .updates-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .update-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-left: 4px solid $primary-color;
+        border-radius: 8px;
+        padding: 1.5rem;
+
+        .update-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: $text-main;
+        }
+
+        p {
+            color: $text-muted;
+            line-height: 1.6;
+
+            small {
+                color: #888;
+                font-style: italic;
+            }
+        }
+    }
+}
+
+// ========== Responsive ==========
+@media (max-width: $screen-md) {
+    .home-header {
+        padding: 4rem 1rem 2rem;
+
+        .content-wrapper h1 {
+            font-size: 2rem;
+        }
+
+        .content-wrapper .subtitle {
+            font-size: 1rem;
+        }
+
+        .ip-box-container {
+            .ip-text {
+                font-size: 0.875rem;
+                word-break: break-all;
+            }
+
+            .server-card {
+                padding: 0.5rem 1rem;
+                max-width: 90%;
+            }
+        }
+    }
+
+    .features-section,
+    .whats-up-section {
+        padding: 3rem 1rem;
+
+        .section-title {
+            font-size: 2rem;
+        }
+    }
+
+    .features-grid,
+    .updates-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }

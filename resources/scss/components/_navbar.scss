@@ -1,52 +1,52 @@
+// ========== Navbar Component ==========
 .main-navbar {
-    background-color: rgba($bg-dark, 0.8);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 1.5rem 0;
+    background-color: $bg-dark;
+    padding: 1rem 2rem;
     position: sticky;
     top: 0;
-    z-index: 50;
-    backdrop-filter: blur(12px);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba($primary-color, 0.1);
 
     .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
+        max-width: 1400px;
+        margin: 0 auto;
     }
 
-    .brand-logo {
-        font-family: $font-gaming;
+    .brand {
+        font-size: 1.5rem;
+        font-weight: bold;
         color: $primary-color;
-        font-size: 1.25rem;
-        font-weight: 900;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        transition: transform 0.2s, text-shadow 0.2s;
+        text-decoration: none;
+        font-family: $font-body;
+        transition: color 0.3s ease;
 
         &:hover {
-            transform: scale(1.05);
-            text-shadow: 0 0 10px rgba($primary-color, 0.5);
+            color: $primary-hover;
         }
     }
 
+    // Desktop Navigation
     .nav-links {
         display: flex;
-        gap: 2.5rem;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
 
         a {
-            font-family: $font-body;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: $text-muted;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: $text-main;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
             position: relative;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
 
             &:hover {
-                color: $text-main;
+                color: $primary-color;
             }
 
             &.active {
@@ -55,14 +55,160 @@
                 &::after {
                     content: '';
                     position: absolute;
-                    bottom: -5px;
+                    bottom: 0;
                     left: 0;
-                    width: 100%;
+                    right: 0;
                     height: 2px;
-                    background-color: $primary-color;
-                    box-shadow: 0 0 8px $primary-color;
+                    background: linear-gradient(90deg, $primary-color, $primary-light);
                 }
             }
+        }
+    }
+
+    // ========== Mobile Burger Menu ==========
+    // Checkbox für Toggle (versteckt)
+    #burger-toggle {
+        display: none;
+    }
+
+    // Burger Icon
+    .burger-menu {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1002;
+        padding: 0.5rem;
+
+        span {
+            width: 28px;
+            height: 3px;
+            background-color: $primary-color;
+            border-radius: 3px;
+            transition: all 0.25s ease;
+            transform-origin: center;
+        }
+    }
+
+    // Backdrop Overlay
+    .menu-backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+    }
+
+    // Mobile Navigation
+    .mobile-nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: $bg-card;
+        padding: 5rem 2rem 2rem;
+        z-index: 1001;
+        transition: right 0.25s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        overflow-y: auto;
+
+        a {
+            display: block;
+            color: $text-main;
+            text-decoration: none;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                background-color: rgba($primary-color, 0.1);
+                color: $primary-color;
+                transform: translateX(-5px);
+            }
+
+            &.active {
+                color: $primary-color;
+                background-color: rgba($primary-color, 0.15);
+                border-left: 4px solid $primary-color;
+            }
+        }
+    }
+
+    // Wenn Checkbox gechecked ist
+    #burger-toggle:checked {
+        // Zeige Backdrop
+        ~ .menu-backdrop {
+            display: block;
+            opacity: 1;
+        }
+
+        // Slide Menu rein
+        ~ .mobile-nav {
+            right: 0;
+        }
+
+        // Burger zu X Animation
+        ~ .burger-menu {
+            span:nth-child(1) {
+                transform: rotate(45deg) translate(7px, 7px);
+            }
+
+            span:nth-child(2) {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+        }
+    }
+
+    // ========== Responsive Breakpoints ==========
+    @media (max-width: $screen-lg) {
+        .nav-links {
+            gap: 1.5rem;
+
+            a {
+                font-size: 0.95rem;
+            }
+        }
+    }
+
+    @media (max-width: $screen-md) {
+        padding: 1rem 1.5rem;
+
+        // Verstecke Desktop Nav
+        .nav-links {
+            display: none;
+        }
+
+        // Zeige Burger Menu
+        .burger-menu {
+            display: flex;
+        }
+
+        // Zeige Mobile Nav (initial versteckt rechts)
+        .mobile-nav {
+            display: block;
+        }
+    }
+
+    @media (min-width: $screen-lg) {
+        .nav-links {
+            gap: 3rem;
         }
     }
 }
