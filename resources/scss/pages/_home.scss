@@ -70,6 +70,10 @@
             font-family: monospace;
             color: $primary-hover;
             font-size: 1rem;
+
+            word-break: break-all;
+            overflow-wrap: break-word;
+            max-width: 100%;
         }
 
         .feedback-text {
@@ -215,6 +219,18 @@
 
         .content-wrapper .subtitle {
             font-size: 1rem;
+        }
+
+        .ip-box-container {
+            .ip-text {
+                font-size: 0.875rem;
+                word-break: break-all;
+            }
+
+            .server-card {
+                padding: 0.5rem 1rem;
+                max-width: 90%;
+            }
         }
     }
 
