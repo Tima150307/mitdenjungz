@@ -9,7 +9,7 @@ class MapController extends Controller
     public function index()
     {
         // OpenStreetMap als Test
-        $mapUrl = 'https://www.openstreetmap.org/export/embed.html?layer=mapnik';
+        $mapUrl = 'http://88.211.211.182:8100';
 
         return view('map', ['url' => $mapUrl]);
     }
