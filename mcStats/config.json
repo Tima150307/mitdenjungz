@@ -1,0 +1,36 @@
+{
+  "data": {
+    "documentRoot": "C:\\Users\\Tima\\PhpstormProjects\\mitdenjungz\\mitdenjungz\\public\\minecraft-stats",
+    "eventsDir": "events",
+    "statsDir": "stats"
+  },
+  "crown": {
+    "bronzeMedal": 1,
+    "silverMedal": 2,
+    "goldMedal": 4
+  },
+  "client": {
+    "defaultLanguage": "de",
+    "playerCacheUUIDPrefix": 2,
+    "playersPerPage": 20,
+    "serverName": "Mit den Jungz",
+    "showLastOnline": true
+  },
+  "players": {
+    "excludeBanned": false,
+    "excludeOps": false,
+    "excludeUUIDs": [],
+    "inactiveDays": 30,
+    "minPlaytime": 10,
+    "profileUpdateInterval": 7,
+    "updateInterval": 7
+  },
+  "server": {
+    "sources": [
+      {
+        "path": "C:\\apex-server-data",
+        "worldName": "world"
+      }
+    ]
+  }
+}
