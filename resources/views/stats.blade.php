@@ -13,7 +13,7 @@
 
                 <div class="status-content">
                     <h2 id="server-status-text">Lade Daten...</h2>
-                    <p class="sub-info" id="server-ip-display">mitdenjungz.de</p>
+                    <p class="sub-info" id="server-ip-display"></p>
                 </div>
             </div>
 
@@ -59,13 +59,26 @@
             </div>
 
             <div class="player-list-section">
-                <h3>Aktuelle Spieler</h3>
-                <div id="player-list" class="player-grid">
-                    <p class="text-muted">Niemand online :(</p>
+                <div class="section-header">
+                    <h3>Aktuelle Spieler</h3>
+                    <span class="player-count" id="player-count-badge"></span>
                 </div>
+                <div id="player-list" class="player-grid">
+                    <!-- Spieler werden hier dynamisch eingefügt -->
+                </div>
+            </div>
+
+            <div class="detailed-stats-section">
+                <a href="/minecraft-stats/index.html" target="_blank" class="stats-btn">
+                    🏆 Vollständige Spieler-Rankings & Awards anzeigen
+                </a>
             </div>
 
         </div>
     </div>
+
+    @push('scripts')
+        <script src="{{ asset('js/server-stats.js') }}"></script>
+    @endpush
 
 </x-app>

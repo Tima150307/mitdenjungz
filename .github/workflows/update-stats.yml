@@ -1,0 +1,55 @@
+name: Update MinecraftStats
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # Alle 15 Minuten
+  workflow_dispatch:  # Manuell triggern im GitHub UI
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Download stats from Apex Server via FTP
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASS }}
+        run: |
+          sudo apt-get update && sudo apt-get install -y lftp
+          mkdir -p server-stats/stats
+          echo "Downloading stats from /world/stats..."
+          lftp -c "set ssl:verify-certificate no; open -u $FTP_USER,$FTP_PASS $FTP_HOST; mirror --verbose /world/stats ./server-stats/stats"
+          echo "Download complete!"
+          ls -la server-stats/stats/
+
+      - name: Generate MinecraftStats HTML
+        run: |
+          echo "Running MinecraftStats CLI..."
+          java -jar MinecraftStats/MinecraftStatsCLI.jar MinecraftStats/config.json
+          echo "Stats generated!"
+          ls -la public/minecraft-stats/
+
+      - name: Commit and Push Changes
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add public/minecraft-stats/*
+
+          # Nur committen wenn es Änderungen gibt
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "🎮 Auto-update: MinecraftStats $(date +'%Y-%m-%d %H:%M:%S')"
+            git push
+            echo "Changes pushed to GitHub!"
+          fi
