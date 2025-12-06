@@ -10,7 +10,7 @@
             <li><a href="/" class="{{ Request::is('/') ? 'active' : '' }}">HOME</a></li>
             <li><a href="/stats" class="{{ Request::is('stats') ? 'active' : '' }}">STATISTIKEN</a></li>
             <li><a href="/map" class="{{ Request::is('map') ? 'active' : '' }}">LIVE MAP</a></li>
-            <li><a href="https://discord.gg/KUEQmPMZT" target="_blank">DISCORD</a></li>
+            <li><a href="https://discord.gg/yHTwNAWhhy" target="_blank">DISCORD</a></li>
         </ul>
 
         {{-- Burger Menu Icon --}}
