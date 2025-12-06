@@ -35,7 +35,7 @@ jobs:
       - name: Generate MinecraftStats HTML
         run: |
           echo "Running MinecraftStats CLI..."
-          java -jar MinecraftStats/MinecraftStatsCLI.jar MinecraftStats/config.json
+          java -jar mcStats/MinecraftStatsCLI.jar mcStats/config.json
           echo "Stats generated!"
           ls -la public/minecraft-stats/
 
