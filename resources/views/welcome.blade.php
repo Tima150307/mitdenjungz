@@ -13,7 +13,7 @@
 
             <div class="ip-box-container">
                 <div class="server-card">
-                    <span id="server-ip" class="ip-text">hier.die.domain.du.hurensohn.de</span>
+                    <span id="server-ip" class="ip-text">88.211.211.182:25565</span>
                     <button id="copy-btn" class="btn-primary">
                         <span>IP KOPIEREN</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
